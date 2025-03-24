@@ -1,8 +1,17 @@
-const Imap = require('imap');
-const { simpleParser } = require('mailparser');
-const fs = require('fs/promises');
-const path = require('path');
+import Imap from 'imap';
+import { simpleParser } from 'mailparser';
+import fs from 'fs/promises';
+import path from 'path';
+import { fileURLToPath } from 'url';
+// const Imap = require('imap');
+// const { simpleParser } = require('mailparser');
+// const fs = require('fs/promises');
+// const path = require('path');
+// import lockfile from 'lockfile';
 
+// 获取当前文件路径
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // Configure IMAP connection
 const imapConfig = {
   user: process.env.EMAIL_USERNAME,
