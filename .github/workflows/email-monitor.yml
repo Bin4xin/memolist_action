@@ -1,0 +1,46 @@
+# Monitor emails and update memo status
+name: Email Monitor
+
+on:
+  email:
+    types: [received]
+  schedule:
+    - cron: '*/30 * * * *'  # Check every 30 minutes
+  workflow_dispatch:
+
+jobs:
+  process-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Configure Git
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+
+      - name: Process Email and Update Memo
+        env:
+          EMAIL_USERNAME: ${{ secrets.EMAIL_USERNAME }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          IMAP_SERVER: ${{ secrets.IMAP_SERVER }}
+        run: |
+          # Check for new emails and parse content
+          node .github/scripts/process-email.js
+
+      - name: Commit changes if memo status updated
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          git add public/data/memos.json
+          git commit -m "Update memo status via email"
+          git push

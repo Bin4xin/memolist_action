@@ -1,0 +1,25 @@
+{
+  "memos": [
+    {
+      "id": 1,
+      "title": "Complete Project Documentation",
+      "description": "Write comprehensive documentation for the current project including setup instructions and API endpoints.",
+      "status": "pending",
+      "createdAt": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "title": "Weekly Team Meeting",
+      "description": "Prepare agenda for weekly team sync and review sprint progress.",
+      "status": "completed",
+      "createdAt": "2024-01-14T09:30:00Z"
+    },
+    {
+      "id": 3,
+      "title": "Code Review",
+      "description": "Review pull requests for the new feature implementation and provide feedback.",
+      "status": "pending",
+      "createdAt": "2024-01-16T14:20:00Z"
+    }
+  ]
+}
