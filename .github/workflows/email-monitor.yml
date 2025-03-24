@@ -2,8 +2,6 @@
 name: Email Monitor
 
 on:
-  email:
-    types: [received]
   schedule:
     - cron: '*/30 * * * *'  # Check every 30 minutes
   workflow_dispatch:
