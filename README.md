@@ -12,7 +12,19 @@ A simple and elegant personal memo website that allows you to manage your memos 
 
 ## Setup and Deployment
 
+### Prerequisites
+
+- Node.js 18 or higher
+- A GitHub account
+- An email account with IMAP access
+
+### Initial Setup
+
 1. Create a new Github repository
+2. Configure repository secrets in GitHub:
+   - `EMAIL_USERNAME`: Your email address
+   - `EMAIL_PASSWORD`: Your email password or app-specific password
+   - `IMAP_SERVER`: Your email provider's IMAP server (e.g., `imap.gmail.com`)
 2. Clone this repository and push to your new repository:
 
 ```bash
