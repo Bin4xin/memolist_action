@@ -23,8 +23,8 @@
     },
     {
       "id": "4",
-      "title": "Your Memo Title",
-      "description": "Your memo description",
+      "title": "Web前端黑夜模式适配方案",
+      "description": "针对当前项目的前端页面实现黑夜模式（Dark Mode）适配；",
       "status": "pending",
       "date": "2025-03-24"
     }
