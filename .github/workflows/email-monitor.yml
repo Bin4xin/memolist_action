@@ -38,11 +38,11 @@ jobs:
 
       - name: Commit changes if memo status updated
         run: |
-          if git diff --quiet; then
-            echo "No changes to commit"
+          if git diff --quiet public/data/memos.json; then
+            echo "No changes to memos.json"
             exit 0
           fi
-          
+
           git add public/data/memos.json
           git commit -m "Update memo status via email"
           git push
